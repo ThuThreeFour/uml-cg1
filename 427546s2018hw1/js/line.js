@@ -43,7 +43,7 @@ $(document).ready(function(){
             context.clearRect(0, 0, canvas.width, canvas.height);
             lineSeg.p1.x = mousePos.x;
             lineSeg.p1.y = mousePos.y;
-            drawPoints(context, lineSeg.p0,lineSeg.p1);
+            drawPoints(context, lineSeg.p0, lineSeg.p1);
         }
     });
 });
