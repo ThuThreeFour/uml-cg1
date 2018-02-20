@@ -69,6 +69,7 @@ function isInEllipse(x, y, midpoint, xMajorAxisRadius, ytMajorAxisRadius) {
     var right = Math.pow(( (y - midpoint.k) / ytMajorAxisRadius), 2);
     var membership = left + right;
 
+    // midpoint ellipse algorithm: http://vplab.snu.ac.kr/lectures/09-2/under_graphics/02_ScanConversion_2.pdf
     switch( true ) {
         case ( (membership >= (0.95)) && (membership <= 1) ):
             return true;

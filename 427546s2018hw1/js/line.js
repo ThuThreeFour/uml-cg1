@@ -38,6 +38,7 @@ $(document).ready(function(){
 
     $("#lineCanvas").mousemove(function(event) {
         var mousePos = getMousePosition(canvas, event);
+        console.log("Mouse position: " + mousePos.x + "," + mousePos.y);
 
         if( lineSeg.enableRubberBandDraw ) {
             context.clearRect(0, 0, canvas.width, canvas.height);

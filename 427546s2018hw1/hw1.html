@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <p>Draw a line segment</p>
+                <p>Draw a line segment by clicking and dragging</p>
                 <canvas id="lineCanvas" width="300" height="200"></canvas>
             </div>
             <div class="col-sm-6">
@@ -20,8 +20,15 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <p>Draw a line segment</p>
+                <p>Draw an ellipse. Expand the ellipse by dragging out the blue dots (not implemented yet)</p>
                 <canvas id="ellipseCanvas" width="300" height="200"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <p>Draw polylines by continuosly clicking and dragging the lines</p>
+                <button id="clearPolylinesBtn" type="button" class="btn btn-primary">Clear polylines canvas</button>
+                <canvas id="polylinesCanvas" width="300" height="200"></canvas>
             </div>
         </div>
     </div>
@@ -30,6 +37,7 @@
     <script type="text/javascript" src="js/line.js"></script>
     <script type="text/javascript" src="js/circle.js"></script>
     <script type="text/javascript" src="js/ellipse.js"></script>
+    <script type="text/javascript" src="js/polylines.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles.css">
