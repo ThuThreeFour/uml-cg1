@@ -13,6 +13,12 @@ $(document).ready(function(){
     var canvas = document.getElementById('circleCanvas');
     var context = canvas.getContext('2d');
 
+    var clearBtn = document.getElementById('clearCircleBtn');
+    clearBtn.addEventListener('click', function (event) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        lineSeg.clickCount = 0;
+    });
+
     canvas.addEventListener('click', function(event) {
         var mousePos = getMousePosition(canvas, event);
 
@@ -41,7 +47,7 @@ $(document).ready(function(){
             context.clearRect(0, 0, canvas.width, canvas.height);
             circleObj.p1.x = mousePos.x;
             circleObj.p1.y = mousePos.y;
-            drawPoints(context, circleObj.p0,circleObj.p1);
+            drawPoints(context, circleObj.p0,circleObj.p1, '#007bff');
         }
     });
 });

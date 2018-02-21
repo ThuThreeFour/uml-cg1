@@ -1,45 +1,75 @@
 <!DOCTYPE HTML>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>CG HW1</title>
-    </head>
-    <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <p>Draw a line segment by clicking and dragging</p>
-                <canvas id="lineCanvas" width="300" height="200"></canvas>
-            </div>
-            <div class="col-sm-6">
-                <p>Click and drag to draw a circle</p>
-                <canvas id="circleCanvas" width="300" height="200"></canvas>
-            </div>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CG HW1</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<h3>Programming Assignment 1: 2D Drawing</h3>
+<div class="row">
+    <div class="col-sm-2">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-line-tab" data-toggle="pill" href="#v-pills-line" role="tab"
+               aria-controls="v-pills-line" aria-selected="true">Line</a>
+            <a class="nav-link" id="v-pills-circle-tab" data-toggle="pill" href="#v-pills-circle" role="tab"
+               aria-controls="v-pills-circle" aria-selected="false">Circle</a>
+            <a class="nav-link" id="v-pills-ellipse-tab" data-toggle="pill" href="#v-pills-ellipse" role="tab"
+               aria-controls="v-pills-ellipse" aria-selected="false">Ellipse</a>
+            <a class="nav-link" id="v-pills-rect-tab" data-toggle="pill" href="#v-pills-rect" role="tab"
+               aria-controls="v-pills-rect" aria-selected="false">Rectangle</a>
+            <a class="nav-link" id="v-pills-polys-tab" data-toggle="pill" href="#v-pills-polys" role="tab"
+               aria-controls="v-pills-polys" aria-selected="false">Polygons & Polylines</a>
         </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <p>Draw an ellipse. Expand the ellipse by dragging out the blue dots (not implemented yet)</p>
-                <canvas id="ellipseCanvas" width="300" height="200"></canvas>
+    </div>
+    <div class="col-sm-10">
+        <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-line" role="tabpanel" aria-labelledby="v-pills-line-tab">
+                <p class="text-secondary">Draw a line segment by clicking and dragging. To stop drawing, click again to lock the shape.<br>To clear the canvas click clear or click on the canvas.</p>
+                <canvas id="lineCanvas" width="300" height="200"></canvas><br>
+                <button id="clearLineBtn" type="button" class="btn btn-outline-secondary btn-sm">Clear</button>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <p>Draw polylines by continuosly clicking and dragging the lines</p>
-                <button id="clearPolylinesBtn" type="button" class="btn btn-primary">Clear polylines canvas</button>
-                <canvas id="polylinesCanvas" width="300" height="200"></canvas>
+            <div class="tab-pane fade" id="v-pills-circle" role="tabpanel" aria-labelledby="v-pills-circle-tab">
+                <p class="text-secondary">To draw a circle, first, you must draw a circle's diameter by clicking and <br>dragging out a line, then click again to lock the shape.</p>
+                <canvas id="circleCanvas" width="300" height="200"></canvas><br>
+                <button id="clearCircleBtn" type="button" class="btn btn-outline-secondary btn-sm">Clear</button>
+
+            </div>
+            <div class="tab-pane fade" id="v-pills-ellipse" role="tabpanel" aria-labelledby="v-pills-ellipse-tab">
+                <p class="text-secondary">Click on the canvas to draw an ellipse.</p>
+                <canvas id="ellipseCanvas" width="300" height="200"></canvas></br>
+                <button id="clearEllipseBtn" type="button" class="btn btn-outline-secondary btn-sm">Clear</button>
+            </div>
+            <div class="tab-pane fade" id="v-pills-rect" role="tabpanel" aria-labelledby="v-pills-rect-tab">
+                <p class="text-secondary">Draw a rectangle. Drag the blue dots to resize (not implemented yet)</p>
+                <canvas id="rectCanvas" width="300" height="200"></canvas></br>
+                <button id="clearRectBtn" type="button" class="btn btn-outline-secondary btn-sm">Clear canvas</button>
+            </div>
+            <div class="tab-pane fade" id="v-pills-polys" role="tabpanel" aria-labelledby="v-pills-polys-tab">
+                <p class="text-secondary">Draw polygons and polylines by clicking, dragging the line, click to lock in <br>position, repeat the step. Double click to stop drawing. </p>
+                <canvas id="polylinesCanvas" width="300" height="200"></canvas></br>
+                <button id="clearPolylinesBtn" type="button" class="btn btn-outline-secondary btn-sm">Clear</button>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/helpers.js"></script>
     <script type="text/javascript" src="js/line.js"></script>
     <script type="text/javascript" src="js/circle.js"></script>
     <script type="text/javascript" src="js/ellipse.js"></script>
     <script type="text/javascript" src="js/polylines.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/rectangle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
-    </body>
+</body>
 </html>

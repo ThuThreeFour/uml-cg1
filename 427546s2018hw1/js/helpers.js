@@ -1,3 +1,5 @@
+
+
 function getMousePosition(canvas, event) {
     var rect = canvas.getBoundingClientRect();
 
@@ -12,17 +14,28 @@ function getMidpoint(a, b) {
 }
 
 /**
- * midpoint() and drawPoints() is adaptation of:
+ * drawPoints() is adaptation of:
  *   https://stackoverflow.com/questions/44646035/js-calculate-midpoints-of-lines-recursively
  */
 
-function drawPoints(context, p0, p1) {
-    var midpoint = {x: getMidpoint(p0.x, p1.x), y: getMidpoint(p0.y, p1.y)};
-    context.fillRect(midpoint.x, midpoint.y, 1, 1);
-    if ((p0.x !== midpoint.x || p0.y !== midpoint.y) && (p1.x !== midpoint.x || p1.y !== midpoint.y)) {
-        drawPoints(context, p0, midpoint);
-        drawPoints(context, midpoint, p1);
+function drawPoints(context, p0, p1, color) {
+    var coordinates = {x: [], y: []};
+
+    function drawPoint( context, p0, p1, color ) {
+        var midpoint = {x: getMidpoint(p0.x, p1.x), y: getMidpoint(p0.y, p1.y)};
+        context.fillStyle = color;
+        context.fillRect(midpoint.x, midpoint.y, 1, 1);
+        coordinates.x.push(midpoint.x);
+        coordinates.y.push(midpoint.y);
+        if ((p0.x !== midpoint.x || p0.y !== midpoint.y) && (p1.x !== midpoint.x || p1.y !== midpoint.y)) {
+            drawPoint(context, p0, midpoint);
+            drawPoint(context, midpoint, p1);
+        }
     }
+
+    drawPoint( context, p0, p1, color );
+
+    return coordinates;
 }
 
 // polylines and polygon

@@ -5,3 +5,16 @@ body {
 canvas {
     border: 1px solid #9C9898;
 }
+
+
+.text-secondary {
+    font-size: 11px;
+}
+
+.nav-link {
+    font-size: 12px;
+}
+
+.btn {
+    font-size: 10px;
+}

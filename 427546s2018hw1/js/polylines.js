@@ -38,7 +38,7 @@ $(document).ready(function(){
             lineSeg.points.push({x: mousePos.x ,y: mousePos.y});
             context.clearRect(0, 0, canvas.width, canvas.height);
             for( var i = 0; i < lineSeg.points.length - 1; i++ ){
-                drawPoints(context, lineSeg.points[i], lineSeg.points[i + 1]);
+                drawPoints(context, lineSeg.points[i], lineSeg.points[i + 1], '#e83e8c');
             }
 
         }
