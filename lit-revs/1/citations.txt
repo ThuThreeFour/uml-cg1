@@ -1,0 +1,27 @@
+Primary article titled "Crowd Motion Segmentation via Streak Flow and Collectiveness"
+@INPROCEEDINGS{8243492, 
+author={M. L. Gao and Y. T. Wang and J. Jiang and J. Shen and G. F. Zou and L. N. Liu}, 
+booktitle={2017 Chinese Automation Congress (CAC)}, 
+title={Crowd motion segmentation via streak flow and collectiveness}, 
+year={2017}, 
+volume={}, 
+number={}, 
+pages={4067-4070}, 
+keywords={image motion analysis;image recognition;image segmentation;action recognition;benchmark dataset;crowd behavior analysis;crowd collectiveness;crowd motion segmentation problem;dynamical property;flow dynamics;segmentation accuracy;streak flow;structure property;Benchmark testing;Computer vision;Dynamics;Fluids;Heuristic algorithms;Motion segmentation;collective motion;collectiveness;crowd motion segmentation;streak flow}, 
+doi={10.1109/CAC.2017.8243492}, 
+ISSN={}, 
+month={Oct},}
+
+Secondary article titled "Meta-Tracking for Video Scene Understanding"
+@INPROCEEDINGS{6636607, 
+author={P. M. Jodoin and Y. Benezeth and Y. Wang}, 
+booktitle={2013 10th IEEE International Conference on Advanced Video and Signal Based Surveillance}, 
+title={Meta-tracking for video scene understanding}, 
+year={2013}, 
+volume={}, 
+number={}, 
+pages={1-6}, 
+keywords={feature extraction;image motion analysis;video surveillance;ODF;brain fiber tractography;chaotic scenes;dominant motion pattern;low-level motion feature;motion histogram;orientation distribution function;particle meta-tracking procedure;particle trajectory;surveillance video;video scene understanding;Histograms;Layout;Surveillance;Tracking;Trajectory;Vectors;Vehicles}, 
+doi={10.1109/AVSS.2013.6636607}, 
+ISSN={}, 
+month={Aug},}
