@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CG HW1</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<h3>Programming Assignment 2</h3>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-line-tab" data-toggle="pill" href="#v-pills-q1" role="tab"
+               aria-controls="v-pills-q1" aria-selected="true">Question 1</a>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-q1" role="tabpanel" aria-labelledby="v-pills-q1-tab">
+                <h3>Draw Fractal</h3>
+                <form>
+                    <div class="form-row">
+                    <div class="col-3">
+                        <label for="primitive">Choose an input primitive</label>
+                        <select class="form-control form-control-sm" id="primitive">
+                            <option>line</option>
+                            <option>arc</option>
+                            <option>circle</option>
+                            <option>ellipse</option>
+                            <option>rectangle</option>
+                            <option>polyline</option>
+                            <option>polygon</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label for="ratio">Ratio</label>
+                        <input type="number" min="0" class="form-control form-control-sm" id="ratio" aria-describedby="ratioHelp" placeholder="1/2">
+                        <small id="ratiolHelp" class="form-text text-muted">Decimal form (e.g: .5). No negative numbers allowed.</small>
+                    </div>
+                    <div class="col-3">
+                        <label for="iterations">Iterations</label>
+                        <input type="number" class="form-control form-control-sm" id="iterations" aria-describedby="iterationsHelp" placeholder="3">
+                        <small id="iterationselp" class="form-text text-muted">No negative numbers or less than 0 allowed.</small>
+                    </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Draw fractal</button>
+                </form>
+                <div class="row">
+                <div class="col-sm-9">
+                    <label for="x-val" class="">x</label>
+                    <input type="text" readonly class="col-sm-5" id="x-val" value="">
+                    <label for="y-val" class="">y</label>
+                    <input type="text" readonly class="col-sm-5" id="y-val" value="">
+                </div>
+                    </div>
+
+                <canvas height="600" width="800" id="arcCanvas"></canvas>
+                <canvas height="600" width="800" id="fractalCanvas"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-5">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/helpers.js"></script>
+        <script type="text/javascript" src="js/arc.js"></script>
+        <script type="text/javascript" src="js/koch.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</body>
+</html>

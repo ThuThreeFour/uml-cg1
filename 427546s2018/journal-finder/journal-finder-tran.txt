@@ -1,0 +1,262 @@
+
+1. ACM Transactions on Graphics (TOG)
+-- most recent issue
+@article{Pietroni:2017:PTD:3130800.3130809,
+ author = {Pietroni, Nico and Tarini, Marco and Vaxman, Amir and Panozzo, Daniele and Cignoni, Paolo},
+ title = {Position-based Tensegrity Design},
+ journal = {ACM Trans. Graph.},
+ issue_date = {November 2017},
+ volume = {36},
+ number = {6},
+ month = nov,
+ year = {2017},
+ issn = {0730-0301},
+ pages = {172:1--172:14},
+ articleno = {172},
+ numpages = {14},
+ url = {http://doi.acm.org/10.1145/3130800.3130809},
+ doi = {10.1145/3130800.3130809},
+ acmid = {3130809},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {architectural geometry, tensegrity},
+} 
+
+-- older issue
+@article{Xing:2014:APR:2661229.2661247,
+ author = {Xing, Jun and Chen, Hsiang-Ting and Wei, Li-Yi},
+ title = {Autocomplete Painting Repetitions},
+ journal = {ACM Trans. Graph.},
+ issue_date = {November 2014},
+ volume = {33},
+ number = {6},
+ month = nov,
+ year = {2014},
+ issn = {0730-0301},
+ pages = {172:1--172:11},
+ articleno = {172},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/2661229.2661247},
+ doi = {10.1145/2661229.2661247},
+ acmid = {2661247},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {analysis, autocomplete, context, digital painting, editing history, repetition, synthesis, texture, user interface, workflow},
+} 
+
+2. IEEE Transactions on Visualization and Computer Graphics (TVCG)
+-- most recent issue
+@ARTICLE{7867820, 
+author={J. Barreira and M. Bessa and L. Barbosa and L. Magalhães}, 
+journal={IEEE Transactions on Visualization and Computer Graphics}, 
+title={A Context-Aware Method for Authentically Simulating Outdoors Shadows for Mobile Augmented Reality}, 
+year={2018}, 
+volume={24}, 
+number={3}, 
+pages={1223-1231}, 
+keywords={Cameras;Clouds;Estimation;Lighting;Meteorology;Probes;Sun;Augmented reality;context-awareness;photometric registration;shadows coherence}, 
+doi={10.1109/TVCG.2017.2676777}, 
+ISSN={1077-2626}, 
+month={March},}
+
+-- older issue
+@ARTICLE{1703359, 
+author={L. Wilkinson and A. Anand and R. Grossman}, 
+journal={IEEE Transactions on Visualization and Computer Graphics}, 
+title={High-Dimensional Visual Analytics: Interactive Exploration Guided by Pairwise Views of Point Distributions}, 
+year={2006}, 
+volume={12}, 
+number={6}, 
+pages={1363-1372}, 
+keywords={data visualisation;sorting;statistical analysis;2D scatterplot;anomaly detection;data visualization;high-dimensional visual analytics;interactive exploration;marginal 2D distribution;multidimensional Euclidean space;multivariate display;orthogonal pairwise projection;point distribution;sorting;statistical analysis;Coordinate measuring machines;Density measurement;Displays;Multidimensional systems;Organizing;Scattering;Shape measurement;Sorting;Statistical analysis;Visual analytics;Visualization;statistical graphics.;Algorithms;Computer Graphics;Computer Simulation;Data Interpretation, Statistical;Information Storage and Retrieval;Models, Statistical;Multivariate Analysis;Pattern Recognition, Automated;User-Computer Interface}, 
+doi={10.1109/TVCG.2006.94}, 
+ISSN={1077-2626}, 
+month={Nov},}
+
+3. IEEE Computer Graphics and Applications (CG&A)
+-- most recent issue
+@ARTICLE{8103322, 
+author={Y. h. Kim and T. Kwon and D. Song and Y. J. Kim}, 
+journal={IEEE Computer Graphics and Applications}, 
+title={Full-Body Animation of Human Locomotion in Reduced Gravity Using Physics-Based Control}, 
+year={2017}, 
+volume={37}, 
+number={6}, 
+pages={28-39}, 
+keywords={computer animation;gait analysis;nonlinear control systems;path planning;pendulums;Froude number;character model;gravitational conditions;human locomotion;motion planner;pendulum trajectory generator;physics-based control;pre-estimation model;reduced gravity;robust full-body animation;stable body animation;stride frequency;tracking;Adaptation models;Biological system modeling;Computational modeling;Gravity;Legged locomotion;Predictive models;Trajectory;3D graphics;animation;computational geometry;computer graphics;object modeling;physics-based modeling}, 
+doi={10.1109/MCG.2017.4031066}, 
+ISSN={0272-1716}, 
+month={November},}
+
+-- older issue
+@INPROCEEDINGS{5693023, 
+author={N. Shinoyama and N. Max}, 
+booktitle={2010 18th Pacific Conference on Computer Graphics and Applications}, 
+title={Fast Height-Field Rendering under Image-Based Lighting}, 
+year={2010}, 
+volume={}, 
+number={}, 
+pages={24-31}, 
+keywords={approximation theory;image texture;lighting;radial basis function networks;rendering (computer graphics);visibility;cone map;environmental illumination;fast height-field rendering;image texture;image-based lighting;render shading;rough self shadowing;single RGBA 2D texture;spherical radial basis functions;visibility function;Approximation methods;Bandwidth;Equations;Integral equations;Lighting;Real time systems;Rendering (computer graphics);bump mapping;horizon mapping;precomputed radiance transport;spherical radial basis function}, 
+doi={10.1109/PacificGraphics.2010.11}, 
+ISSN={}, 
+month={Sept},}
+
+
+4. ACM SIGGRAPH Computer Graphics (conference proceedings only, published as an ACM TOG issue)
+-- most recent issue
+@article{Pietroni:2017:PTD:3130800.3130809,
+ author = {Pietroni, Nico and Tarini, Marco and Vaxman, Amir and Panozzo, Daniele and Cignoni, Paolo},
+ title = {Position-based Tensegrity Design},
+ journal = {ACM Trans. Graph.},
+ issue_date = {November 2017},
+ volume = {36},
+ number = {6},
+ month = nov,
+ year = {2017},
+ issn = {0730-0301},
+ pages = {172:1--172:14},
+ articleno = {172},
+ numpages = {14},
+ url = {http://doi.acm.org/10.1145/3130800.3130809},
+ doi = {10.1145/3130800.3130809},
+ acmid = {3130809},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {architectural geometry, tensegrity},
+} 
+
+-- older issue
+@article{Viennot:1989:CAR:74334.74336,
+ author = {Viennot, X. and Eyrolles, G. and Janey, N. and Arqu{\'e}s, D.},
+ title = {Combinatorial Analysis of Ramified Patterns and Computer Imagery of Trees},
+ journal = {SIGGRAPH Comput. Graph.},
+ issue_date = {July 1989},
+ volume = {23},
+ number = {3},
+ month = jul,
+ year = {1989},
+ issn = {0097-8930},
+ pages = {31--40},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/74334.74336},
+ doi = {10.1145/74334.74336},
+ acmid = {74336},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+} 
+
+@inproceedings{Viennot:1989:CAR:74333.74336,
+ author = {Viennot, X. and Eyrolles, G. and Janey, N. and Arqu{\'e}s, D.},
+ title = {Combinatorial Analysis of Ramified Patterns and Computer Imagery of Trees},
+ booktitle = {Proceedings of the 16th Annual Conference on Computer Graphics and Interactive Techniques},
+ series = {SIGGRAPH '89},
+ year = {1989},
+ isbn = {0-89791-312-4},
+ pages = {31--40},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/74333.74336},
+ doi = {10.1145/74333.74336},
+ acmid = {74336},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+} 
+
+
+5. Computers and Graphics (C&G)
+-- most recent issue
+@article{RIFFNALLERSCHIEFER201866,
+title = "Physics-based deformation of subdivision surfaces for shared virtual worlds",
+journal = "Computers & Graphics",
+volume = "71",
+pages = "66 - 76",
+year = "2018",
+issn = "0097-8493",
+doi = "https://doi.org/10.1016/j.cag.2017.12.005",
+url = "http://www.sciencedirect.com/science/article/pii/S0097849317302182",
+author = "Andreas Riffnaller-Schiefer and Ursula H. Augsdörfer and Dieter W. Fellner",
+keywords = "Subdivision surfaces, Isogeometric analysis, Interactive, Soft-body, Web service"
+}
+
+-- older issue
+@article{SCHUSTER1986277,
+title = "The use of computers in design and planning—Integration via interface management",
+journal = "Computers & Graphics",
+volume = "10",
+number = "4",
+pages = "277 - 295",
+year = "1986",
+issn = "0097-8493",
+doi = "https://doi.org/10.1016/0097-8493(86)90018-X",
+url = "http://www.sciencedirect.com/science/article/pii/009784938690018X",
+author = "R. Schuster and E. Vöge and D. Trippner"
+}
+
+
+6. Computer Graphics Forum (CGF)
+-- most recent issue
+@article {CGF:CGF12990,
+author = {Wang, Z. and Esturo, J. Martinez and Seidel, H.-P. and Weinkauf, T.},
+title = {Stream Line–Based Pattern Search in Flows},
+journal = {Computer Graphics Forum},
+volume = {36},
+number = {8},
+issn = {1467-8659},
+url = {http://dx.doi.org/10.1111/cgf.12990},
+doi = {10.1111/cgf.12990},
+pages = {7--18},
+keywords = {visualization, pattern search, stream lines, Categories and Subject Descriptors (according to ACM CCS): I.3.3 [Computer Graphics]: Picture/Image Generation–Line and curve generation},
+year = {2017},
+}
+
+-- older issue
+@article {CGF:CGF13221,
+author = {Xu, Chao and Wang, Rui and Zhao, Shuang and Bao, Hujun},
+title = {Real-Time Linear BRDF MIP-Mapping},
+journal = {Computer Graphics Forum},
+volume = {36},
+number = {4},
+issn = {1467-8659},
+url = {http://dx.doi.org/10.1111/cgf.13221},
+doi = {10.1111/cgf.13221},
+pages = {27--34},
+keywords = {Categories and Subject Descriptors (according to ACM CCS), I.3.7 [Computer Graphics]: Three-Dimensional Graphics and Realism—Color, shading, shadowing, and texture},
+year = {2017},
+}
+
+7. Visual Computer
+-- most recent issue
+@Article{Ahmad2018,
+author="Ahmad, Sahar
+and Khan, Muhammad Faisal",
+title="Multimodal non-rigid image registration based on elastodynamics",
+journal="The Visual Computer",
+year="2018",
+month="Jan",
+day="01",
+volume="34",
+number="1",
+pages="21--27",
+abstract="In this paper, we present a new multimodal image registration technique established on elastodynamics notion. The main idea behind this concept is the progression of waves on an elastic body as soon as it is disturbed from its initial rest state. We propose to solve the multimodal registration problem by modeling the non-linear deformations as elastic waves and iteratively solving the elastodynamics wave equation to estimate the transformation. The inertial force in elastodynamics model is computed as the gradient of mutual information which considers the statistical relationship between the intensities of the images acquired using different imaging modalities. We tested our method on T1--T2 weighted MR brain image pairs and MR-CT brain image pairs. The proposed registration technique was compared against a variant of demons method proposed for multimodal images. The registration results were analyzed by examining the overlay images and by computing the normalized mutual information. The qualitative and quantitative analysis proved that our proposed method registers the images better than the compared method.",
+issn="1432-2315",
+doi="10.1007/s00371-016-1307-z",
+url="https://doi.org/10.1007/s00371-016-1307-z"
+}
+
+-- older issue
+@Article{Magnenat-Thalman1985,
+author="Magnenat-Thalman, N.
+and Thalmann, D.",
+title="Computer animation",
+journal="The Visual Computer",
+year="1985",
+month="Dec",
+day="01",
+volume="1",
+number="4",
+pages="207--208",
+issn="1432-2315",
+doi="10.1007/BF02021808",
+url="https://doi.org/10.1007/BF02021808"
+}
+
