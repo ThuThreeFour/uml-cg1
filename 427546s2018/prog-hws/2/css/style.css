@@ -5,3 +5,10 @@ body {
 canvas {
     border: 1px solid #9C9898;
 }
+
+#wrapper{position:relative;}
+#HTreeDemo{position:absolute; border:1px solid;}
+#PythagorasDemo{position:absolute; border:1px solid;}
+#arcCanvas{position:absolute; border:1px solid;}
+#fractalCanvas{position:absolute; border:1px solid;}
+#smCanvas{position:absolute; border:1px solid;}

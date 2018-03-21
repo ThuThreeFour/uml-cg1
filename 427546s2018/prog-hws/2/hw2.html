@@ -7,20 +7,31 @@
     <title>CG HW1</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="./Fractal.js-master/color/color.js"></script>
+    <script src="./Fractal.js-master//fractal.js"></script>
+    <script src="./Fractal.js-master//animation.js"></script>
+    <script src="./Fractal.js-master//pythagoras.js"></script>
+    <script src="./Fractal.js-master//htree.js"></script>
+    <script src="./Fractal.js-master//koch.js"></script>
+
 </head>
 <body>
 <h3>Programming Assignment 2</h3>
 <div class="row">
     <div class="col-sm-3">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link active" id="v-pills-line-tab" data-toggle="pill" href="#v-pills-q1" role="tab"
+            <a class="nav-link active" id="v-pills-q1-tab" data-toggle="pill" href="#v-pills-q1" role="tab"
                aria-controls="v-pills-q1" aria-selected="true">Question 1</a>
+            <a class="nav-link" id="v-pills-q2-tab" data-toggle="pill" href="#v-pills-q2" role="tab"
+               aria-controls="v-pills-q2" aria-selected="false">Question 2</a>
         </div>
     </div>
     <div class="col-sm-9">
-        <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-content" id="v-pills-tabMainMenu">
             <div class="tab-pane fade show active" id="v-pills-q1" role="tabpanel" aria-labelledby="v-pills-q1-tab">
                 <h3>Draw Fractal</h3>
+                <hr/>
                 <form>
                     <div class="form-row">
                     <div class="col-3">
@@ -37,38 +48,162 @@
                     </div>
                     <div class="col-3">
                         <label for="ratio">Ratio</label>
-                        <input type="number" min="0" class="form-control form-control-sm" id="ratio" aria-describedby="ratioHelp" placeholder="1/2">
-                        <small id="ratiolHelp" class="form-text text-muted">Decimal form (e.g: .5). No negative numbers allowed.</small>
+                        <input class="form-control form-control-sm" id="ratio" aria-describedby="ratioHelp" placeholder="0.5">
+                        <small id="ratiolHelp" class="form-text text-muted">Decimal form (e.g: .5) from 0.25 to 1.</small>
                     </div>
                     <div class="col-3">
                         <label for="iterations">Iterations</label>
-                        <input type="number" class="form-control form-control-sm" id="iterations" aria-describedby="iterationsHelp" placeholder="3">
-                        <small id="iterationselp" class="form-text text-muted">No negative numbers or less than 0 allowed.</small>
+                        <input type="number" class="form-control form-control-sm" id="iterations" aria-describedby="iterationsHelp" placeholder="2">
+                        <small id="iterationselp" class="form-text text-muted">Numbers from 1 to 4.</small>
                     </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Draw fractal</button>
+                    <button type="submit" id="fractal_submit" class="btn btn-primary mb-2">Draw fractal</button>
                 </form>
-                <div class="row">
-                <div class="col-sm-9">
-                    <label for="x-val" class="">x</label>
-                    <input type="text" readonly class="col-sm-5" id="x-val" value="">
-                    <label for="y-val" class="">y</label>
-                    <input type="text" readonly class="col-sm-5" id="y-val" value="">
-                </div>
+
+                <div id=wrapper>
+                    <br/>
+                    <h4 id="HTreeDemoMsg">HOVER OVER CANVAS FOR POLYLINE and RECTANGLE</h4>
+                    <!--line-->
+                    <canvas height="600" width="800" id="fractalCanvas"></canvas>
+                    <!--arc-->
+                    <canvas height="600" width="800" id="arcCanvas"></canvas>
+                    <!--circle-->
+                    <canvas id="smCanvas" width="600" height="600" style="visibility: hidden; border:1px solid #000;"></canvas>
+
+                    <canvas id="HTreeDemo" height="400" width="600"></canvas>
+
+
+                <canvas id="PythagorasDemo" height="400" width="600"></canvas>
+
                     </div>
 
-                <canvas height="600" width="800" id="arcCanvas"></canvas>
-                <canvas height="600" width="800" id="fractalCanvas"></canvas>
+            </div>
+            <div class="tab-pane fade" id="v-pills-q2" role="tabpanel" aria-labelledby="v-pills-q2-tab">
+                <h3>Draw Wheels</h3>
+                <hr/>
+                <h4>Part 1</h4>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="nav flex-column nav-pills" id="v-pills-tab-main-menu" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-line-tab" data-toggle="pill" href="#v-pills-line" role="tab"
+                               aria-controls="v-pills-line" aria-selected="true">Line</a>
+                            <a class="nav-link" id="v-pills-circle-tab" data-toggle="pill" href="#v-pills-circle" role="tab"
+                               aria-controls="v-pills-circle" aria-selected="false">Circle</a>
+                            <a class="nav-link" id="v-pills-ellipse-tab" data-toggle="pill" href="#v-pills-ellipse" role="tab"
+                               aria-controls="v-pills-ellipse" aria-selected="false">Ellipse</a>
+                            <a class="nav-link" id="v-pills-rect-tab" data-toggle="pill" href="#v-pills-rect" role="tab"
+                               aria-controls="v-pills-rect" aria-selected="false">Rectangle</a>
+                            <a class="nav-link" id="v-pills-polys-tab" data-toggle="pill" href="#v-pills-polys" role="tab"
+                               aria-controls="v-pills-polys" aria-selected="false">Polygons</a>
+                            <a class="nav-link" id="v-pills-polylines-tab" data-toggle="pill" href="#v-pills-polylines" role="tab"
+                               aria-controls="v-pills-polylines" aria-selected="false">Polylines</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-line" role="tabpanel" aria-labelledby="v-pills-line-tab">
+                                <p class="text-secondary">Draw a line wheel</p>
+                                <canvas id="lineCanvas" width="300" height="200"></canvas><br>
+                                <button id="clearLineBtn" type="button" class="btn btn-outline-secondary btn-sm">Clear</button>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-circle" role="tabpanel" aria-labelledby="v-pills-circle-tab">
+                                <p class="text-secondary">Draw a circle wheel</p>
+                                <canvas id="circleCanvas" width="300" height="200"></canvas><br>
+                                <button id="clearCircleBtn" type="button" class="btn btn-outline-secondary btn-sm">Clear</button>
+
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-ellipse" role="tabpanel" aria-labelledby="v-pills-ellipse-tab">
+                                <p class="text-secondary">Draw an ellipse wheel</p>
+                                <canvas id="ellipseCanvas" width="300" height="200"></canvas></br>
+                                <button id="clearEllipseBtn" type="button" class="btn btn-outline-secondary btn-sm">Clear</button>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-rect" role="tabpanel" aria-labelledby="v-pills-rect-tab">
+                                <p class="text-secondary">Draw a rectangle wheel</p>
+                                <canvas id="rectCanvas" width="300" height="200"></canvas></br>
+                                <button id="clearRectBtn" type="button" class="btn btn-outline-secondary btn-sm">Clear canvas</button>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-polys" role="tabpanel" aria-labelledby="v-pills-polys-tab">
+                                <p class="text-secondary">Draw a polygon wheel</p>
+                                <canvas id="polylinesCanvas" width="300" height="200"></canvas></br>
+                                <button id="clearPolylinesBtn" type="button" class="btn btn-outline-secondary btn-sm">Clear</button>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-polylines" role="tabpanel" aria-labelledby="v-pills-polylines-tab">
+                                <p class="text-secondary">Draw a polylines wheel</p>
+                                <canvas id="polylineCanvas" width="300" height="200"></canvas></br>
+                                <button id="clearPolylines type="button" class="btn btn-outline-secondary btn-sm">Clear</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <h4>Part 2 & 3</h4>
+                <form>
+                    <div class="form-row">
+                        <div class="col-3">
+                            <label for="ratio">Wheel's radius</label>
+                            <input type="number" vaue="100" min="0" class="form-control form-control-sm"
+                                   id="wheel_radius" aria-describedby="circle_radius_help_text" placeholder="enter number (100 - 300)">
+                            <small id="wheel_radius_help_text" class="form-text text-muted">Radius must be between 100 and 300</small>
+                        </div>
+                        <div class="col-3">
+                            <label for="iterations">Driver's score</label>
+                            <input type="number" vaue="100" min="0" class="form-control form-control-sm"
+                                   id="driver_score" aria-describedby="driver_score_help_text" placeholder="enter number (0 - 100)">
+                            <small id="driver_score_help_text" class="form-text text-muted">Score must be between 0 and 100</small>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                    </form>
+                <br/>
+                    <button type="submit" id="wheel_submit" class="btn btn-primary mb-2">Draw wheel</button>
+                </form>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <label for="x-val" class="">x</label>
+                        <input type="text" readonly class="col-sm-5" id="wheel-x-val" value="">
+                        <label for="y-val" class="">y</label>
+                        <input type="text" readonly class="col-sm-5" id="wheel-y-val" value="">
+                    </div>
+                </div>
+
+                <canvas height="600" width="800" id="wheelCanvas"></canvas>
             </div>
         </div>
     </div>
-    <div class="col-sm-5">
+
+    <!-- SOURCE START: https://github.com/zeitgeist87/Fractal.js -->
+    <script type="text/javascript">
+
+        pycanvas = document.getElementById('PythagorasDemo'),
+                fract = new Fractal.Pythagoras(pycanvas, {x: 0, y: 0}, 9, "#D4E576","#126845");
+
+        start = {x: pycanvas.width / 2, y: pycanvas.height};
+        target = {x: 0, y: 0};
+        var pythAnim = new Fractal.Animation(fract, start, target);
+
+        pythAnim.skip(6000);
+
+        treecanvas = document.getElementById('HTreeDemo'),
+                fract = new Fractal.HTree(treecanvas, {x: 0, y: 0}, 14, "black", "rgba(91,0,144,0.3)", true);
+
+        start = {x: treecanvas.width / 2, y: treecanvas.height};
+        target = {x: treecanvas.width / 4, y: treecanvas.height / 7};
+        var htreeAnim = new Fractal.Animation(fract, start, target);
+
+        htreeAnim.skip(2000);
+    </script>
+    <!-- SOURCE END: https://github.com/zeitgeist87/Fractal.js -->
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>
         <script type="text/javascript" src="js/helpers.js"></script>
         <script type="text/javascript" src="js/arc.js"></script>
         <script type="text/javascript" src="js/koch.js"></script>
+        <script type="text/javascript" src="js/wheel.js"></script>
+    <script src="./Fractal-by-Sebastian-Mihai/circle/fractal.js"></script>
+    <script src="./Fractal-by-Sebastian-Mihai/circle/circles.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

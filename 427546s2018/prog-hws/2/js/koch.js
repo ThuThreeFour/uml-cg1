@@ -3,7 +3,7 @@ var KochLine = function (segmentLength) {
     this.end = {x: segmentLength.end.x, y: segmentLength.end.y};
     this.ratio = {start: 0, end: segmentLength.ratio};
     this.next = null;
-    this.angle = Math.PI/3; // 60 degrees, we are creating an equilateral triangle
+    this.angle = -Math.PI/3; // 60 degrees, we are creating an equilateral triangle
     this.points = [];
 
     // because JavaScript is wonky

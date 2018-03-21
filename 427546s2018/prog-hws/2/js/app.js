@@ -1,3 +1,81 @@
+//
+// A small library to draw fractals on an HTML5 canvas
+//
+//                              by Sebastian Mihai, 2013
+//
+$( document ).ready(function() {
+
+    var circlecanvas = document.getElementById('smCanvas'),
+        circlecontext = circlecanvas.getContext('2d');
+    var arccanvas = document.getElementById('arcCanvas'),
+        arccontext = arccanvas.getContext('2d');
+    treecanvas.style.visibility='hidden';
+    var treectx = treecanvas.getContext('2d');
+    canvas.style.visibility='hidden';
+    pycanvas.style.visibility='hidden';
+    var pyctx = pycanvas.getContext('2d');
+    arccanvas.style.visibility='hidden';
+
+
+    $("#fractal_submit").click(function(event){
+
+        treecanvas.style.visibility='hidden';
+        canvas.style.visibility='hidden';
+        pycanvas.style.visibility='hidden';
+        arccanvas.style.visibility='hidden';
+        circlecanvas.style.visibility='hidden';
+
+        treectx.clearRect(0,0, treecanvas.width, treecanvas.height);
+        pyctx.clearRect(0,0, pycanvas.width, pycanvas.height);
+        arccontext.clearRect(0,0, pycanvas.width, pycanvas.height);
+
+        var primitive = $('#primitive').val(),
+            ratio = 	parseFloat($('#ratio').val()),
+            iterations  = parseInt($('#iterations').val());
+
+        if (!ratio || !iterations) {
+            alert('Please fill out all fields: primitive, iterations, ratio');
+            event.preventDefault();
+            return;
+        }
+
+        switch (primitive) {
+            case 'line':
+                ctx.clearRect(0,0, canvas.width, canvas.height);
+                canvas.style.visibility='visible';
+
+                drawKochCurve(200, 300, 600, 300, 'blue', Math.PI/3, iterations, ratio);
+
+                event.preventDefault();
+                break;
+            case 'arc':
+                arccanvas.style.visibility='visible';
+                drawKochCurveforArc(200, 300, 600, 300, '#000', Math.PI/3, 1, 1/2);
+                event.preventDefault();
+                break;
+            case 'circle':
+                circlecanvas.style.visibility='visible';
+                smOnload();
+                event.preventDefault();
+                break;
+            case 'rectangle':
+                pycanvas.style.visibility='visible';
+                event.preventDefault();
+            case 'polyline':
+                treecanvas.style.visibility='visible';
+                event.preventDefault();
+                break;
+            case 'polygon':
+                event.preventDefault();
+                break;
+
+        }
+
+    });
+
+
+});
+
 var arcCanvas = document.getElementById('arcCanvas'),
     arcCtx = arcCanvas.getContext('2d'),
     arcDepth = 1,
@@ -24,7 +102,7 @@ var drawFakeLine = function(x1,y1,x2,y2, color)
 }
 var drawKochCurveforArc = function(x1, y1, x2, y2, color, alfa, iterations, ratio){
     if (iterations == 0) {
-        drawFakeLine(x1,y1,x2,y2, color);
+        // drawFakeLine(x1,y1,x2,y2, color);
         return;
     }
 
@@ -35,7 +113,6 @@ var drawKochCurveforArc = function(x1, y1, x2, y2, color, alfa, iterations, rati
 
 };
 
-drawKochCurveforArc(200, 300, 600, 300, '#000', Math.PI/3, 1, 1/2);
 
 arcCanvas.addEventListener('mousemove', function(event) {
     var mousePos = getMousePosition(arcCanvas, event);
@@ -94,7 +171,7 @@ canvas.addEventListener('mousemove', function(event) {
 
 
         // drawKochCurve(200, 300, 600, 300, '#000', Math.PI/3, 1, 1/3);
-drawKochCurve(50, 200, 200, 200, '#000', Math.PI/3, 1, 1/3);
+// drawKochCurve(200, 300, 600, 300, '#000', Math.PI/3, 2, 1/3);
 
 
 // $(document).ready(function(){

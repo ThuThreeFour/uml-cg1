@@ -27,11 +27,14 @@ var arc = function (context, arcEndpoints) {
      * @param {Boolean} options.anticlockwise Optional An optional Boolean which, if true, causes the arc to be drawn counter-clockwise between the two angles. By default it is drawn clockwise.
      */
 
-    var drawArc = function (options) {
+    var drawArc = function (options, color) {
 
+        that.context.strokeStyle = color;
         that.context.beginPath();
         that.context.arc(options.x, options.y, options.radius, options.startAngle, options.endAngle, options.anticlockwise);
         that.context.stroke();
+        that.context.stroke();
+
     };
 
     this.drawArcs = function (options) {
@@ -58,7 +61,7 @@ var arc = function (context, arcEndpoints) {
         var numberOfArcs = 3;
         var degrees = [[Math.PI, 0], [Math.PI, 0], [Math.PI, 0]];
 
-        drawArc({x: 125, y: 200, radius: 75, startAngle: 0, endAngle: Math.PI, anticlockwise: true});
+        drawArc({x: 125, y: 200, radius: 75, startAngle: 0, endAngle: Math.PI, anticlockwise: true}, '#6f42c1');
 
         that.points.push([that.start.x, that.start.y]);
         var x_center = ((that.end.x - that.start.x)/2) + that.start.x;
@@ -93,7 +96,7 @@ var arc = function (context, arcEndpoints) {
                 anitclockwise = ((j + 1) & 1) ? false : true;
 
 
-            drawArc({x: p2.x, y: p2.y, radius: radius, startAngle: startAngle, endAngle: endAngle, anticlockwise: anitclockwise});
+            drawArc({x: p2.x, y: p2.y, radius: radius, startAngle: startAngle, endAngle: endAngle, anticlockwise: anitclockwise}, '#e83e8c');
         }
 
         return that.points;
