@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>07.01 - Load JSON Model</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../libs/three.js"></script>
+    <script src="../libs/dat.gui.min.js"></script>
+    <script src="../libs/stats.min.js"></script>
+    <script src="../libs/JSONLoader.js"></script>
+    <style>
+        body {
+            /* set margin to 0 and overflow to hidden, to go fullscreen */
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<h2>Programming Assignment 3: [1] Model, [2] Rotation, [7] Texture</h2>
+<hr/>
+<form>
+    <div class="form-row">
+        <div class="col-3">
+            <label for="primitive">Choose an input primitive model</label>
+            <select class="form-control form-control-sm" id="primitive">
+                <option>cone</option>
+                <option>cube</option>
+                <option>cylinder</option>
+                <option>donut</option>
+                <option>sphere</option>
+            </select>
+        </div>
+        <div class="col-3">
+        </div>
+        <div class="col-3">
+        </div>
+    </div>
+    <button type="submit" id="submit" class="btn btn-primary mb-2">Draw 3D model</button>
+</form>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script type="application/javascript" src="../js/prog-hw3.js"></script>
+</body>
+</html>
