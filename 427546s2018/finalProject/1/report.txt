@@ -1,0 +1,15 @@
+These are the technologies I used:
+1. Blender (opensourced 3D creation suite): https://www.blender.org/
+---- Installed Blender on personal Mac and installed three.js plugin to generate 3D object templates.
+---- Plugin install script location: /Applications/Blender/blender.app/Contents/Resources/2.79/scripts/addons
+---- This is a hosted version but missing the three.js plugin at https://threejs.org/editor/
+
+2. Three.js: https://threejs.org/
+
+What I have done so far is [1] modeling. The primitive shapes are listed in the drop-down box for the user to choose from
+to draw a 3D object from. On the back-end, the coordinates and other information for each model are stored in a
+JavaScript file so it can be reused again. I also [2] transformed my object by rotating it. The user is able to choose the
+rotation speed. Lastly, I also create a [7] texture for my object.
+
+I have used examples from this repository for my assignment:
+https://github.com/josdirksen/essential-threejs
