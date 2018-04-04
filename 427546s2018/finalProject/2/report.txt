@@ -1,0 +1,16 @@
+I have used examples from this same repository for my previous assignment and this assignment:
+https://github.com/josdirksen/essential-threejs
+
+However, I have modified it to meet the requirements of this class. The update this week is the user is able to adjust the
+size of the model that they are interested in using. For example, if they want to use a cube, then they have the choice
+of providing the width, height, and depth of the cube. The other feature I was able to implement was "3. Viewing: view
+your created object from multiple views." The user is able to adjust the parameters for the orthographic projections as
+follows (https://threejs.org/docs/#api/cameras/OrthographicCamera):
+"Left — Camera left plane;
+Right — Camera right plane;
+Top — Camera top plane;
+Bottom — Camera bottom plane;
+Near — Camera near plane;
+Far — Camera far plane."
+In orthographic projections, all objects have the same size regardless of their distance to the camera. This type of
+viewing can be used to create 3D scenes.

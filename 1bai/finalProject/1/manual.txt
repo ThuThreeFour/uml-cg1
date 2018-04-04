@@ -1,0 +1,5 @@
+== How to Guide to Use Program ==
+1. Under "Choose an input primitive model" select any object
+2. Click 3D model
+3. The 3D shape will appear on a canvas with a black control box labelled with "rotationSpeed"
+3. Use your mouse to adjust the blue bar in the black box to control the object's rotation speed
