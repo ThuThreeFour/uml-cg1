@@ -1,6 +1,6 @@
 === How to use application ===
 1. Choose an input model from the drop-down labelled "Choose an input primitive model"
-2. Input the three properties for the selected model (you can user the hints given in the text box). For example, if
+2. Input the three properties for the selected model (you can use the hints given in the text box). For example, if
 the selected model is a "cube", then fill in the "width", "height", and "depth" properties.
 3. Click "Draw object"
 4. Scroll down to see the entire scene.
