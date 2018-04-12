@@ -1,0 +1,8 @@
+I have used examples from this same repository for my previous assignment and this assignment:
+https://github.com/josdirksen/essential-threejs
+
+However, I have modified it to meet the requirements of this class. The update this week is
+7. Create texture/bump/environmental mappings for the object.
+Using the application, you can choose 2 textures to add on the object. Zoom in to view the texture in more detail.
+You will also noticed half a sphere, which is my interpretation of the bump. The bump will rotate with the main object.
+I was unable to implement the environmental mapping because I ran out of time.

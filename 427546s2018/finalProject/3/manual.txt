@@ -1,0 +1,8 @@
+=== How to use application ===
+1. Look for Step 1: Add texture
+2. Follow the direction and choose exactly 2 textures. Your choices are Earth, cloud, Earth bump, and Moon bump.
+3. Click the orange "Draw" button.
+4. The canvas should render along with a sphere object that is spinning around.
+5. Use your mouse or track pad to zoom in object.
+6. Use your mouse or track pad to drag around the object.
+7. The is a control to adjust the rotation speed at the top right corner of the screen.

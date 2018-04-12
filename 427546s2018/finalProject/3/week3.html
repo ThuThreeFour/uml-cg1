@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Texture</title>
+</head>
+<body>
+<div id="panel" class="collapsed">
+    <h1>Final Project - Week 3</h1>
+    <form>
+        <div class="col-3">
+            <h3> Step 1: Add texture</h3>
+            <label style="padding-left: 25px; font-size: 18px;">Choose 2 textures:</label>
+            <div id="container">
+                <input type="checkbox" id="earthmap4k" name="earthmap">
+                <label for="earthmap4k">Earth</label><br/>
+                <img src="textures/planets/earthmap4k.jpg" id="tl">
+                <input type="checkbox" id="fair_clouds_4k" name="earthcloud">
+                <label for="fair_clouds_4k">Cloud</label><br/>
+                <img src="textures/planets/fair_clouds_4k.png" id="ml">
+                <input type="checkbox" id="earthbump4k" name="earthbump">
+                <label for="earthbump4k">Earth bump</label><br/>
+                <img src="textures/planets/earthbump4k.jpg" id="bl">
+                <input type="checkbox" id="moonbump4k" name="moonbump">
+                <label for="moonbump4k">Moon bump</label><br/>
+                <img src="textures/planets/moonbump4k.jpg" id="bbl">
+                <button type="submit" id="submit">Draw</button>
+                <button type="submit" id="clear" style="background: gray;">Clear</button>
+                <h3 style="margin-left: -15px"> Step 2: Zoom and drag object</h3>
+                <span>Use your mouse/track pad to zoom in and out, or drag the object around.</span>
+         </div>
+
+        </div>
+    </form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/91/three.js"></script>
+<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.1/dat.gui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r16/Stats.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="js/app.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</body>
+</html>

@@ -1,0 +1,403 @@
+/* source: https://threejs.org/examples*/
+@font-face {
+    font-family: 'inconsolata';
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #000;
+    margin: 0px;
+    height: 100%;
+    color: #555;
+    font-family: 'inconsolata';
+    font-size: 15px;
+    line-height: 18px;
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+h3 {
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+a {
+    color: #2194CE;
+    text-decoration: none;
+}
+
+canvas {
+    left: 310px;
+}
+
+#canvas-ctrl-container {
+    left: 310px;
+}
+
+button {
+    /*float: right;*/
+    border-radius: 0px;
+    background: orange;
+    width: 100px;
+    height: 35px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#panel {
+    position: fixed;
+    left: 0px;
+    width: 310px;
+    height: 100%;
+    overflow: auto;
+    background: #fafafa;
+}
+
+#panel #content {
+    padding: 0px 20px 20px 20px;
+}
+
+#panel #content .link {
+    color: #2194CE;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+}
+
+#panel #content .selected {
+    color: #ff0000;
+}
+
+#panel #content .link:hover {
+    text-decoration: underline;
+}
+
+#viewer {
+    position: absolute;
+    border: 0px;
+    left: 310px;
+    width: calc(100% - 310px);
+    height: 100%;
+    overflow: auto;
+}
+
+#viewSrcButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 8px;
+    color: #fff;
+    background-color: #555;
+    opacity: 0.7;
+}
+
+#viewSrcButton:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.filterBlock{
+    margin: 20px;
+    position: relative;
+}
+
+.filterBlock p {
+    margin: 0;
+}
+
+#filterInput {
+    width: 100%;
+    padding: 5px;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    border: 1px solid #dedede;
+}
+
+#filterInput:focus{
+    border: 1px solid #2194CE;
+}
+
+#clearFilterButton {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    margin-top: -8px;
+    width: 16px;
+    height: 16px;
+    font-size: 14px;
+    color: grey;
+    text-align: center;
+    line-height: 0;
+    padding-top: 7px;
+    opacity: .5;
+}
+
+#clearFilterButton:hover {
+    opacity: 1;
+}
+
+.filtered {
+    display: none !important;
+}
+
+#panel li b {
+    font-weight: bold;
+}
+
+/* mobile */
+
+#expandButton {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    width: 32px;
+    height: 32px;
+}
+
+#expandButton span {
+    height: 2px;
+    background-color: #2194CE;
+    width: 16px;
+    position: absolute;
+    left: 8px;
+    top: 10px;
+}
+
+#expandButton span:nth-child(1) {
+    top: 16px;
+}
+
+#expandButton span:nth-child(2) {
+    top: 22px;
+}
+
+@media all and ( max-width: 640px ) {
+    h1 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #panel {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 480px;
+        width: 100%;
+        right: 0;
+        z-index: 100;
+        overflow: hidden;
+        border-bottom: 1px solid #dedede;
+    }
+
+    #content {
+        position: absolute;
+        left: 0;
+        top: 90px;
+        right: 0;
+        bottom: 0;
+        font-size: 17px;
+        line-height: 22px;
+        overflow: auto;
+    }
+
+    #viewer {
+        position: absolute;
+        left: 0;
+        top: 56px;
+        width: 100%;
+        height: calc(100% - 56px);
+    }
+
+    #expandButton {
+        display: block;
+    }
+
+    #panel.collapsed {
+        height: 56px;
+    }
+}
+
+/* source: https://codepen.io/Tectonics0x3F/pen/EfAgr*/
+
+*{
+    box-sizing:border-box;
+}
+
+#container {
+    height:116.28px;
+    width:223.19px;
+    margin:auto;
+    position: absolute;
+    top:110px;
+    left:10%;
+}
+
+#tl{
+    height:116.28px;
+    width:223.19px;
+    /*position:absolute;*/
+    /*top:0%;*/
+    /*left:0%;*/
+    /*!*background:#FF5050;*!*/
+    /*!*box-shadow:5px 7px 0px 0px #662020;*!*/
+    /*transition:all ease .35s;*/
+}
+#tc{
+    height:33.34%;
+    width:33.34%;
+    position:absolute;
+    top:0%;
+    left:33.34%;
+    box-shadow:5px 7px 0px 0px #663D29;
+    background:#FF9966;
+    transition:all ease .35s;
+}
+#tr{
+    height:33.34%;
+    width:33.34%;
+    position:absolute;
+    top:0%;
+    left:66.67%;
+    background:#FFFF66;
+    transition:all ease .35s;
+}
+#ml{
+    height:116.28px;
+    width:223.19px;
+    /*position:absolute;*/
+    /*top:33.34%;*/
+    /*left:0%;*/
+    /*!*background:#99FF66;*!*/
+    /*!*box-shadow:5px 7px 0px 0px #3D6629;*!*/
+    /*transition:all ease .35s;*/
+}
+#mc{
+    height:33.34%;
+    width:33.34%;
+    position:absolute;
+    top:33.34%;
+    left:33.34%;
+    background:#00FF99;
+    box-shadow:5px 7px 0px 0px #00663D;
+    transition:all ease .35s;
+}
+#mr{
+    height:33.34%;
+    width:33.34%;
+    position:absolute;
+    top:33.34%;
+    left:66.67%;
+    background:#0099FF;
+    transition:all ease .35s;
+}
+#bl, #bbl{
+    height:116.28px;
+    width:223.19px;
+    /*position:absolute;*/
+    /*top:66.67%;*/
+    /*left:0%;*/
+    /*background:#6666FF;*/
+    /*transition:all ease .35s;*/
+}
+#bc{
+    height:33.34%;
+    width:33.34%;
+    position:absolute;
+    top:66.67%;
+    left:33.34%;
+    background:#9966FF;
+    transition:all ease .35s;
+}
+#br{
+    height:33.34%;
+    width:33.34%;
+    position:absolute;
+    top:66.67%;
+    left:66.67%;
+    background:#9900FF;
+    transition:all ease .35s;
+}
+div p {
+    font-family: 'Open Sans',Arial,Helvetica,sans-serif;
+    color:#FFFFFF;
+    font-weight:bold;
+    text-align:center;
+    position:relative;
+    font-size:50px;
+    top:30%;
+    margin:0px;
+}
+#tl:hover {
+    top:-1.56%;
+    left:-1.11%;
+    transition:all ease .35s;
+}
+#tc:hover {
+    top:-1.56%;
+    left:32.22%;
+    transition:all ease .35s;
+}
+#tr:hover {
+    top:-1.56%;
+    left:65.56%;
+    box-shadow:5px 7px 0px 0px #666629;
+    transition:all ease .35s;
+}
+#ml:hover {
+    top:31.78%;
+    left:-1.11%;
+    transition:all ease .35s;
+}
+#mc:hover {
+    top:31.78%;
+    left:32.22%;
+    transition:all ease .35s;
+}
+#mr:hover {
+    top:31.78%;
+    left:65.56%;
+    box-shadow:5px 7px 0px 0px #003D66;
+    transition:all ease .35s
+}
+/*#bl:hover {*/
+    /*top:65.11%;*/
+    /*left:-1.11%;*/
+    /*box-shadow:5px 7px 0px 0px #292966;*/
+    /*transition:all ease .35s;*/
+/*}*/
+#bc:hover {
+    top:65.11%;
+    left:32.22%;
+    box-shadow:5px 7px 0px 0px #3D2966;
+    transition:all ease .35s;
+}
+#br:hover {
+    top:65.11%;
+    left:65.56%;
+    box-shadow:5px 7px 0px 0px #3D0066;
+    transition:all ease .35s;
+}
