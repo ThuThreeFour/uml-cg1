@@ -1,0 +1,7 @@
+This week, I implemented:
+4. Transform light sources(s).
+
+I implemented the ambient and directional light sources:
+https://threejs.org/docs/#api/lights/AmbientLight
+https://threejs.org/docs/#api/lights/DirectionalLight
+

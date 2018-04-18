@@ -1,185 +1,148 @@
-$(document).ready(function () {
-
-    $('#submit').click(function (event) {
-        $('#canvas-ctrl-container').remove();
-        $('div.dg').remove();
-        $('body').append('<div id="canvas-ctrl-container"> <div id="ctrl-container"></div> </div>');
-
-        var checkBoxes = ['earthmap4k', 'fair_clouds_4k', 'earthbump4k', 'moonbump4k'],
-            checked = [],
-            count = $( "input:checked" ).length;
-
-        checkBoxes.forEach(function (texture) {
-            if ($('#' + texture + ":checked").val()) checked.push(texture);
-        });
-
-        if (count == 2) {
-            modelName = 'sphere';
-            property = 200;
-            property1 = 200;
-            property2 = 200;
-
-            if (checked[0] == 'fair_clouds_4k') {
-                checked[0] = checked[1];
-                checked[1] = 'fair_clouds_4k';
-            }
-            // initialize the view
-            init(modelName, checked[0], checked[1], property, property1, property2);
-
-            event.preventDefault();
-
-        } else {
-            alert('You must choose 2 textures, no more, no less.');
-            event.preventDefault();
-            return;
-        }
-
-    });
+//    Show how to use an ambient light to soften the harsh directional lighting
 
 // global variables
-    var renderer;
-    var scene;
-    var stats;
-    var camera;
-    var cameraControl;
+var renderer;
+var scene;
+var camera;
 
-    var control;
+var control;
+var orbit;
 
-    function init(geometry, texture1, texture2, property, property1, property2) {
+function init() {
 
-        scene = new THREE.Scene();
+    // create a scene, that will hold all our elements such as objects, cameras and lights.
+    scene = new THREE.Scene();
 
-        // create a camera, which defines where we're looking at.
-        camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    // create a camera, which defines where we're looking at.
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-        // create a render, sets the background color and the size
-        renderer = new THREE.WebGLRenderer();
-        renderer.setClearColor(0x000000, 1.0);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.shadowMapEnabled = true;
+    // create a render, sets the background color and the size
+    renderer = new THREE.WebGLRenderer();
+    renderer.setClearColor(0x000000, 1.0);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMapEnabled = true;
 
+    // position and point the camera to the center of the scene
+    camera.position.x = 65;
+    camera.position.y = 66;
+    camera.position.z = 63;
+    camera.lookAt(scene.position);
 
-        // position and point the camera to the center of the scene
-        camera.position.x = -500;
-        camera.position.y = 200;
-        camera.position.z = 300;
-        camera.lookAt(scene.position);
-
-        var directionalLight = new THREE.DirectionalLight();
-        scene.add(directionalLight);
-        directionalLight.position.set(-500, 200, 300);
-
-        // add the output of the renderer to the html element
-        document.body.appendChild(renderer.domElement);
-
-        // add controls
-        cameraControl = new THREE.OrbitControls(camera);
-
-        control = new function () {
-            this.rotationSpeed = 0.001;
-        };
-
-        addControls(control);
-
-        addGeometry(2, 2, texture1, texture2, property, property1, property2);
-
-        // draw cloud bumps
-        var cloudGeometry = new THREE.SphereGeometry(property + .25, property1, property2);
-        var cloudMaterial = createCloudMaterial('fair_clouds_4k');
-        var cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
-        cloudMesh.name = 'cloudsBump';
-        cloudMesh.position.x = 60 * 1 - 50;
-        cloudMesh.position.y = 0;
-        cloudMesh.position.z = 60 * 1 - 50;
-        scene.add(cloudMesh);
-
-        // add the output of the renderer to the html element
-        $(renderer.domElement).appendTo('div#canvas-ctrl-container');
+    orbit = new THREE.OrbitControls(camera);
 
 
-        // call the render function
-        render();
-    }
-
-    function createEarthMaterial(texture) {
-        // 4096 is the maximum width for maps
-        if (texture == 'fair_clouds_4k') {
-            texture += '.png';
-        } else {
-            texture += '.jpg';
-        }
-        var earthTexture = THREE.ImageUtils.loadTexture("./textures/planets/" + texture);
-
-        var earthMaterial = new THREE.MeshBasicMaterial();
-        earthMaterial.map = earthTexture;
-
-        return earthMaterial;
-    }
-
-    function createCloudMaterial(texture) {
-        if (texture == 'fair_clouds_4k') {
-            texture += '.png';
-        } else {
-            texture += '.jpg';
-        }
-
-        var cloudTexture = THREE.ImageUtils.loadTexture("./textures/planets/"+ texture);
-
-        var cloudMaterial = new THREE.MeshBasicMaterial();
-        cloudMaterial.map = cloudTexture;
-        cloudMaterial.transparent = true;
+    // add the output of the renderer to the html element
+    // document.body.appendChild(renderer.domElement);
+    $('body').append('<div id="canvas-ctrl-container"> <div id="ctrl-container"></div> </div>');
+    $(renderer.domElement).appendTo('div#canvas-ctrl-container');
 
 
-        return cloudMaterial;
-    }
+    control = new function () {
+        this.ambientLight = true;
+        this.directionalLight = true;
+        this.rotSpeed = 0.01;
+    };
+    addControls(control);
 
-    function addGeometry(x, y, texture1, texture2, property, property1, property2) {
-        // create a cube and add to scene
-        var thisGeometry = new THREE.SphereGeometry(property, property1, property2);
-        // create a cloudGeometry, slighly bigger than the original sphere
-        var cloudGeometry = new THREE.SphereGeometry(property + .25, property1, property2);
+    addObjects(scene);
+    addFloor();
+    addDirectionalLight(scene);
+    addAmbientLight(scene);
 
-        // draw 1st texture
-        var sphereMaterial = createEarthMaterial(texture1);
-        var earthMesh = new THREE.Mesh(thisGeometry, sphereMaterial);
-        earthMesh.name = 'earth';
-        earthMesh.position.x = 60 * x - 50;
-        earthMesh.position.y = 0;
-        earthMesh.position.z = 60 * y - 50;
-        scene.add(earthMesh);
+    // call the render function
+    render();
+}
 
-        // draw 2nd texture
-        var cloudMaterial = createCloudMaterial(texture2);
-        var cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
-        cloudMesh.name = 'clouds';
-        cloudMesh.position.x = 60 * x - 50;
-        cloudMesh.position.y = 0;
-        cloudMesh.position.z = 60 * y - 50;
-        scene.add(cloudMesh);
+function addAmbientLight(scene) {
+    var ambientLight = new THREE.AmbientLight(0x332222);
+    ambientLight.name = 'ambientLight';
+    scene.add(ambientLight);
+}
 
-    }
+function addObjects(scene) {
+    var sphereGeom = new THREE.SphereGeometry(4, 10, 10);
+    var cubeGeom = new THREE.CubeGeometry(4, 2, 8);
+    var cylinderGeom = new THREE.SphereGeometry(4, 4, 10);
 
-    function addControls(controlObject) {
-        var gui = new dat.GUI({autoplace: false, width: 500});
+    var material = new THREE.MeshPhongMaterial({color: 0x0099ff});
+    material.shading = THREE.FlatShading;
+    var sphereMesh = new THREE.Mesh(sphereGeom, material);
+    sphereMesh.position.set(0, 1, 0);
+    sphereMesh.castShadow = true;
 
-        gui.add(controlObject, 'rotationSpeed', -0.01, 0.01);
-    }
+    var cubeMesh = new THREE.Mesh(cubeGeom, material);
+    cubeMesh.position.set(-20, 1, 0);
+    cubeMesh.castShadow = true;
 
-    function render() {
+    var cylMesh = new THREE.Mesh(cylinderGeom, material);
+    cylMesh.position.set(20, 5, 0);
+    cylMesh.castShadow = true;
 
-        // update the camera
-        cameraControl.update();
-
-        scene.getObjectByName('earth').rotation.y += control.rotationSpeed;
-        scene.getObjectByName('clouds').rotation.y += control.rotationSpeed * 1.1;
-        scene.getObjectByName('cloudsBump').rotation.y += control.rotationSpeed * 2.1;
+    scene.add(sphereMesh);
+    scene.add(cubeMesh);
+    scene.add(cylMesh);
+}
 
 
-        // and render the scene
-        renderer.render(scene, camera);
+function addDirectionalLight(scene) {
+    var directionalLight = new THREE.DirectionalLight();
+    directionalLight.position.copy(new THREE.Vector3(50, 30, -50));
+    directionalLight.castShadow = true;
+    directionalLight.shadowCameraNear = 25;
+    directionalLight.shadowCameraFar = 200;
+    directionalLight.shadowCameraLeft = -150;
+    directionalLight.shadowCameraRight = 150;
+    directionalLight.shadowCameraTop = 50;
+    directionalLight.shadowCameraBottom = -50;
+    directionalLight.shadowMapWidth = 2048;
+    directionalLight.shadowMapHeight = 2048;
 
-        // render using requestAnimationFrame
-        requestAnimationFrame(render);
-    }
+//        directionalLight.shadowCameraVisible = true;
+    directionalLight.name = 'dirLight';
+    scene.add(directionalLight);
+}
 
-});
+
+function addControls(controlObject) {
+    var gui = new dat.GUI();
+    gui.add(controlObject, 'ambientLight').onChange(function (e) {
+        scene.getObjectByName('ambientLight').visible = e
+    });
+    gui.add(controlObject, 'directionalLight').onChange(function (e) {
+        scene.getObjectByName('dirLight').visible = e
+    });
+}
+
+function addFloor() {
+    var floorGeometry = new THREE.PlaneGeometry(100, 100, 20, 20);
+    var floorMaterial = new THREE.MeshPhongMaterial();
+    floorMaterial.map = THREE.ImageUtils.loadTexture("./textures/wood_1-1024x1024.png");
+
+    floorMaterial.map.wrapS = floorMaterial.map.wrapT = THREE.RepeatWrapping;
+    floorMaterial.map.repeat.set(4, 4);
+    floorMaterial.side = THREE.DoubleSide;
+    var floorMesh = new THREE.Mesh(floorGeometry, floorMaterial);
+    floorMesh.receiveShadow = true;
+    floorMesh.rotation.x = -0.5 * Math.PI;
+    scene.add(floorMesh);
+}
+
+function render() {
+    renderer.render(scene, camera);
+    orbit.update();
+
+    var light = scene.getObjectByName('dirLight');
+
+    var x = light.position.x;
+    var z = light.position.z;
+
+    light.position.x = x * Math.cos(control.rotSpeed) + z * Math.sin(control.rotSpeed);
+    light.position.z = z * Math.cos(control.rotSpeed) - x * Math.sin(control.rotSpeed);
+
+
+    requestAnimationFrame(render);
+}
+
+// calls the init function when the window is done loading.
+window.onload = init;
+
