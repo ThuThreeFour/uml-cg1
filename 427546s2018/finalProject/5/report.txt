@@ -1,0 +1,6 @@
+I have used examples from this same repository for my previous assignment and this assignment:
+https://github.com/josdirksen/essential-threejs
+
+However, I have modified it to meet the requirements of this class. The update this week is and added
+audio with the animation. Audio was not part of the features listed to implement but I think it's pretty
+cool.

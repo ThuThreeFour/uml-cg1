@@ -12,7 +12,7 @@ a. Draw three 2D "elevations" (front, top, side -- see, for example, "my dream h
 b. Enter coordinates: choose your model format(s) (e.g., vertices, edges, primitives, other).
 
 2. Transform object: apply 3D (Translate/Rotate/Scale/SHear) transformations to the created object.
-
+yy.
 3. Viewing: view your created object from multiple views.
 
 4. Transform camera/viewer/light sources(s).
