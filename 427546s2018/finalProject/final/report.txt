@@ -1,0 +1,2 @@
+This week I have implemented a maze game. I have modified the codes from the open source Github projects to render
+bushes to create the maze. Also, I have added the buttons to control the cube to move around the maze.

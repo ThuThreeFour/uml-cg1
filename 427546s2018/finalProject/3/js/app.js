@@ -135,7 +135,7 @@ $(document).ready(function () {
 
     function addGeometry(x, y, texture1, texture2, property, property1, property2) {
         // create a cube and add to scene
-        var thisGeometry = new THREE.SphereGeometry(property, property1, property2);
+        var thisGeometry = new THREE.BoxGeometry(property, property1, property2);
         // create a cloudGeometry, slighly bigger than the original sphere
         var cloudGeometry = new THREE.SphereGeometry(property + .25, property1, property2);
 

@@ -1,0 +1,4 @@
+=== How to use application ===
+Use the buttons in the right hand sidebar to control the cube to move it through the maze.
+If you touch the bushes then you will die and will have to start over again at the same beginning point.
+You can use your mouse to move the maze around, to whatever position you desire.
